@@ -9,6 +9,8 @@ class Customer(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     
+    class Meta:
+        db_table = 'Customer'
     def __str__(self):
         return self.name
     
@@ -25,6 +27,8 @@ class Loan(models.Model):
     status = models.CharField(max_length=20,default='active')
     created_at = models.DateTimeField(auto_now_add=True)
    
+    class Meta:
+        db_table = 'Loan'
 
     def __str__(self):
         return self.item + ' - ' + self.customer_id.name
@@ -40,6 +44,9 @@ class Installment(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     
+    class Meta:
+        db_table = 'Installment'
+
     def __str__(self):
         return self.loan_id.customer_id.name
     
