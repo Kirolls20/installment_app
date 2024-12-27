@@ -1,0 +1,54 @@
+{% include 'base/base.html' %}
+{% load static %}
+{% block content %}
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{% block title %} Customer List {% endblock %}</title>
+  <!-- External CSS -->
+  <link rel="stylesheet" href="{% static 'css/clinet_lst.css' %}" />
+</head>
+<body>
+    <br>
+  <div class="container">
+    <h1>Clients</h1>
+    <div class="toolbar">
+      <input type="text" id="search" placeholder="Search Customers..." />
+    </div>
+
+    <table id="customerTable">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th onclick="sortTable(1)">Name &#x25B2;&#x25BC;</th>
+          <th>National ID</th>
+          <th>Phone</th>
+          <th>Email</th>
+          <th>Address</th>
+          <th>Created At</th>
+          <th>Updated At</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody id="tableBody">
+        {% for client in clients %}
+        <tr>
+          <td>{{ forloop.counter }}</td>
+          <td>{{ client.name }}</td>
+          <td>{{ client.national_id }}</td>
+          <td>{{ client.phone_number }}</td>
+          <td>{{ client.email }}</td>
+          <td>{{ client.address }}</td>
+          <td>{{ client.created_at }}</td>
+          <td>{{ client.updated_at }}</td>
+          <td>
+            <a href="" class="btn btn-primary btn-sm">View</a>
+          </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+</body>
+{% endblock %}
+
+

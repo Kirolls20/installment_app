@@ -1,0 +1,23 @@
+{% include 'base/base.html' %}
+{% block content %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Client Home</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <br>
+    <br>
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-md-6">
+                <a href="{% url 'client_list' %}" class="btn btn-primary btn-block" style="padding: 20px;">List All The clients</a>
+            </div>
+            <div class="col-md-6">
+                <a href="{% url 'client_create' %}" class="btn btn-success btn-block" style="padding: 20px;">Add New Client</a>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
